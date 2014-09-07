@@ -2,7 +2,7 @@
 
 library(dplyr)
 library(data.table)
-fh <- fread("household_power_consumption.txt", na.strings="?")
+suppressWarnings(fh <- fread("household_power_consumption.txt", na.strings=c("NA","?","")))
 powerdata <- filter(fh, grep("^[1,2]/2/2007", Date))
 
 
